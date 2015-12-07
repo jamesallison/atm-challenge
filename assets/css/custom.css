@@ -1,0 +1,53 @@
+body {
+	font-family: monospace;
+}
+.atm {
+	background-color: gray;
+	color: white;
+	border: 3px solid #414141;
+	/*border-radius: 10px;*/
+	font-size: 80pt;
+}
+.welcome {
+	color: #283c92;
+}
+.controls {
+	font-size: 60pt;
+	background-color: #414141;
+	text-align: center;
+}
+.controlButton {
+	color: white !important;
+}
+.controlButton:hover {
+	color: gray !important;
+}
+.screen {
+	text-align: center;
+}
+.window, .window_newpin {
+	background-color: #dcdcc1;
+	color: #292929;
+	margin-bottom: 20px;
+}
+.keypad {
+	border: 
+}
+.pinbutton {
+	border: 2px solid #414141;
+	color: white !important;
+	text-decoration: none !important;
+}
+.optionrow {
+	font-size: 1em;
+	padding-bottom: .80em;
+}
+.optionrow .left, optionrow.right {
+	
+}
+.optionrow .left {
+	text-align: left;
+}
+.optionrow .right {
+	text-align: right;
+}
