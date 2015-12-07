@@ -1,2 +1,2 @@
 # atm-challenge
-Tom &amp; James' ATM Challenge
+James' ATM Challenge
