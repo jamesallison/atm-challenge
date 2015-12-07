@@ -21,7 +21,7 @@
 								<i class="fa fa-chevron-right fa-stack-1x"></i>
 							</span>
 						</a>
-						<a id="" href="#" class="controlButton">
+						<a id="30Button" href="#" class="controlButton">
 							<span class="fa-stack fa-lg">
 								<i class="fa fa-square-o fa-stack-2x"></i>
 								<i class="fa fa-chevron-right fa-stack-1x"></i>
@@ -63,11 +63,34 @@
 								</div>
 							</div>
 							<div id="balanceScreen" class="subScreen" style="display: none;">
-								Your current balance is: <span id="balance" style="color: #283c92;"></span>
+								Your current balance is:<br>
+								<span id="balance" style="color: #283c92;"></span>
 								<div style="padding-top: 2em;text-align:left;">Back</div>
 							</div>
 							<div id="withdrawScreen" class="subScreen" style="display: none;">
-								Withdraw stuff
+								Withdraw Money
+								<p style="font-size: 0.5em;">&nbsp;</p>
+								<div class="row optionrow">
+									<div class="col-md-6 left">
+										&pound;10
+									</div>
+									<div class="col-md-6 right">
+										&pound;20
+									</div>
+								</div>
+								<div class="row optionrow">
+									<div class="col-md-6 left">
+										&pound;30
+									</div>
+									<div class="col-md-6 right">
+										&pound;40
+									</div>
+								</div>
+								<div class="row optionrow">
+									<div class="col-md-6 left">
+										Back
+									</div>
+								</div>
 							</div>
 							<div id="pinScreen" class="subScreen" style="display: none;">
 								Enter New PIN
@@ -88,7 +111,7 @@
 								<i class="fa fa-chevron-left fa-stack-1x"></i>
 							</span>
 						</a>
-						<a id="" href="#" class="controlButton">
+						<a id="40Button" href="#" class="controlButton">
 							<span class="fa-stack fa-lg">
 								<i class="fa fa-square-o fa-stack-2x"></i>
 								<i class="fa fa-chevron-left fa-stack-1x"></i>

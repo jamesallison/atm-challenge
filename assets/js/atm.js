@@ -68,10 +68,17 @@ function mainScreen() {
 
 // cancel button, which will 'return' their card and take them back to pin input
 $("#cancelButton").click(function() {
-	// reset currentUserDetails
-	currentUserDetails = "";
-	// show the pin input menu by resetting the page
-	location.reload();
+	// if they're on the withdrawal subscreen, then this button should serve as the £20 button
+	if($("#withdrawScreen").css('display') == 'none') {
+		// reset currentUserDetails
+		currentUserDetails = "";
+		// show the pin input menu by resetting the page
+		location.reload();
+	}
+	else {
+		// they're on the withdrawal screen, serve as £20 button
+		withdraw(20);
+	}
 });
 
 // back button, to escape from sub-screens and go to the main menu
@@ -134,8 +141,7 @@ function changePin(newpin) {
 		// if the api responded with "false" then their login details were wrong
 		if(response_newpin == false) {
 			// reset the page
-			alert("/api/pin.php?cardnumber=4444444444444444&pin=" + pin + "&newpin=" + newpin);
-			//location.reload();
+			location.reload();
 		}
 		else {
 			// pin changed successfully, login them in again with their new pin and send them to the main menu
@@ -150,3 +156,62 @@ function changePin(newpin) {
 	    console.log(errorThrown);
 	});
 }
+
+// withdraw screen
+$("#withdrawButton").click(function() {
+	// if they're on the withdrawal subscreen, then this button should serve as the £10 button
+	if($("#withdrawScreen").css('display') == 'none') {
+		// hide the menu screen
+		$("#mainScreenMenu").hide();
+		// show withdraw screen
+		$("#withdrawScreen").show();
+	}
+	else {
+		// they're on the withdrawal screen, serve as £10 button
+		withdraw(10);
+	}
+});
+
+// withdraw function
+function withdraw(amount) {
+	var response;
+	$.ajax({
+	    "type": "GET",
+	    "url": "/api/withdraw.php?cardnumber=4444444444444444&pin=" + pin + "&newpin=" + newpin + "&amount=" + amount,
+	    "success": function(text) {
+		    response = text;
+    	}
+
+	}).done(function ( ) {
+		// if the api responded with "false" then their login details were wrong
+		if(response == false) {
+			// reset the page
+			alert("Withdrawal failed - possibly insufficient funds.");
+		}
+		else {
+			// withdraw successful, send to the main menu
+			$(".subScreen").hide();
+			$("#mainScreenMenu").show();
+		}
+	    console.log(response);
+	
+	}).fail(function ( jqXHR, textStatus, errorThrown ) {
+	    console.log(jqXHR);
+	    console.log(textStatus);
+	    console.log(errorThrown);
+	});
+	
+	// now we've done it server-side, change the local balance record
+	currentUserDetails["balance"] = currentUserDetails["balance"] - amount;
+	$("#balance").html(currentUserDetails["balance"]);
+}
+// withdraw 30
+$("#30Button").click(function() {
+	// withdraw it
+	withdraw(30);
+});
+// withdraw 40
+$("#40Button").click(function() {
+	// withdraw it
+	withdraw(40);
+});

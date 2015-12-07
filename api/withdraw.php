@@ -19,7 +19,7 @@
 		if(mysql_num_rows($query)) {
 			// account found, check they have sufficient funds
 			$account = mysql_fetch_assoc($query);
-			if($account['balance'] > $_GET['amount']) {
+			if($account['balance'] >= $_GET['amount']) {
 			
 				// calculate new balance value
 				$newbalance = $account['balance'] - $_GET['amount'];
